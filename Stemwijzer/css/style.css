@@ -1,0 +1,80 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
+}
+.container{
+    margin: 5% 10%;
+    background-color: white;
+}
+.inner-container{
+    padding: 10em;
+}
+.text-line {
+    font-size: 2.25em;
+    color: black;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.body-headline { 
+    margin: 2em 0em;
+}
+.headline {
+    font-size: 2.25em;
+    color: rgb(1, 180, 220);
+    font-weight: bold;
+    margin: 0px;
+}
+.body-block {
+    display: flex;
+    flex-direction: row;
+}
+.block-points {
+    width: 800px;
+}
+.point {
+    display: flex;
+    flex-direction: row;
+    margin: 5% 0%;
+}
+
+.point-text {
+    font-size: 1.75em;
+    color: black;
+}
+
+.point-text p{
+    margin: 0px 1em;
+}
+
+.block-button {
+    width: 700px;
+}
+
+.button {
+    margin-top: 15%;
+    background-color: black;
+    border-color: transparent;
+    color: white;
+    font-size: 2.25em;
+    font-weight: bold;
+    padding: 0.7em 2.5em;
+    border-radius: 5%;
+    float: right;
+}
+
+.body-block-bottem {
+    padding: 5em 10em;
+    background-color: rgb(249, 249, 249);
+    border-top: 2px dotted ;
+}
+
+.text-body {
+    font-size: 1.75em;
+    color: black;
+}
+
+.container-bottom {
+    padding: 5em 10em;
+    background-color: rgb(1, 180, 220);
+}
