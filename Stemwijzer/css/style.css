@@ -19,7 +19,7 @@ body{
 .body-headline { 
     margin: 2em 0em;
 }
-.headline {
+.headline, .h1-stelling{
     font-size: 2.25em;
     color: rgb(1, 180, 220);
     font-weight: bold;
@@ -38,7 +38,7 @@ body{
     margin: 5% 0%;
 }
 
-.point-text {
+.point-text, .p-stelling {
     font-size: 1.75em;
     color: black;
 }
@@ -51,7 +51,7 @@ body{
     width: 700px;
 }
 
-.button {
+.button, #button {
     margin-top: 15%;
     background-color: black;
     border-color: transparent;
@@ -61,6 +61,11 @@ body{
     padding: 0.7em 2.5em;
     border-radius: 5%;
     float: right;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: rgb(1, 180, 220);
+    transition-duration: 0.2s;
 }
 
 .body-block-bottem {
@@ -77,4 +82,67 @@ body{
 .container-bottom {
     padding: 5em 10em;
     background-color: rgb(1, 180, 220);
+}
+
+/* Stemwijzer */
+.progresbar {
+    height: 0.5em;
+    background-color: rgb(1, 180, 220);
+    width: 3%;
+}
+
+.inner-container-stelling{
+    padding: 1em 10em;
+}
+
+.container-backtopage img{
+    margin: 2em;
+}
+.container-backtopage img:hover{
+    margin: 2em 1.5em;
+    transition-duration: 0.5s;
+}
+
+.h1-stelling, .p-stelling, .button-stelling {
+    padding: 1em 0em;
+
+}
+
+.button-stelling {
+    margin: 1em 0em;
+    background-color: black;
+    border-color: transparent;
+    color: white;
+    font-size: 2.25em;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
+.button-stelling:hover {
+    background-color: rgb(1, 180, 220);
+    transition-duration: 0.2s;
+}
+
+#btnEens{
+    margin: 0em 0.5em 0em 0em;
+}
+#btnGeen, #btnOneens {
+    margin: 0em 0.5em;
+}
+#btnNext, #parties {
+    background-color: transparent;
+    color: gray;
+}
+
+#parties {
+    color: black;
+    margin: 0em 0.5em 0em -2em;
+}
+
+/* Extra */
+#stelling-title{
+    padding: 2em 10em;
+    background-color: rgb(231, 234, 235);
 }

@@ -1,152 +1,141 @@
-var container = document.createElement("DIV");
-var id_button = ["btnEens", "btnOneens", "btnVolgende"]
-var button_text = ["EENS", "ONEENS", "VOLGENDE"]
-var grid_container = document.getElementsByClassName("grid")[0];
-var stelling_text = [
-    "Er moet meer geld naar ontwikkelingshulp",
-    "De overheid moet afslanken",
-    "De AOW leeftijd moet terug naar 67 jaar",
-    "Wietteelt moet worden gelegaliseerd",
-    "We moeten minder geld aan het leger uitgeven",
-    "Alle werkenden moeten minder loonbelasting betalen",
-    "Alle overheden van hoog tot laag moeten het aantal regels dat geldt binnen onze samenleving drastisch terug brengen.",
-    "Als men de regels niet kan handhaven, moet men ze ook niet instellen."
-]
+var container = document.createElement("DIV");          //----------- maakt een container aan
+var id_button = ["btnEens", "btnGeen", "btnOneens", "btnNext", "parties"]
+var button_text = ["Eens", "Geen van beide", "Oneens", "Sla vraag over -->", "Wat vinden de partijen?"]
+var headcontainer = document.getElementsByClassName("form")[0];
+var progressbar = 0;
 var button3 = document.getElementById("btnVolgende");
 
-grid_container.appendChild(container);
-document.body.appendChild(container);       //----------- maakt een container aan
+headcontainer.appendChild(container);                   //----------- voegt container aan form[div]
 container.id = ('stemWijzer');
 
-for (b = 1; b <= 1; b++) {
-    var div = document.createElement("DIV");  //----------- maakt div's aan
-    div.id = "buttons";                       //|
-    container.appendChild(div);               //|
-    
-    var h1 = document.createElement("H1")                   //----------- maakt een h1 (met tekst) aan
-    div.appendChild(h1);                                    //|
-    h1.id = "stelling";                                     //|
-    h1.innerHTML = "Nederland moet terug naar de Gulden";   //|
+var div = document.createElement("DIV");                //----------- maakt div's aan
+div.id = "stelling";                                    //|
+container.appendChild(div);                             //|
 
-    for (var i = 0; i < 3; i++) {
-        var button = document.createElement("button");      //----------- maakt de buttons aan
-        div.appendChild(button);                            //|
-        button.id = id_button[i];                           //|
-        button.innerHTML = button_text[i];                  //|
+var h1 = document.createElement("H1")                   //----------- maakt een h1 (met tekst) aan
+div.appendChild(h1);                                    //|
+h1.className = "h1-stelling";                           //|
+h1.innerHTML = subjects[0].title;                       //|
+
+var p = document.createElement("p")                     //----------- maakt een p (met tekst) aan
+div.appendChild(p);                                     //|
+p.className = "p-stelling";                             //|
+p.innerHTML = subjects[0].statement;                    //|
+
+for (var i = 0; i < 4; i++) {
+    var button = document.createElement("button");      //----------- maakt de buttons aan
+    div.appendChild(button);                            //|
+    button.id = id_button[i];                           //|
+    button.className = "button-stelling"                //|
+    button.innerHTML = button_text[i];                  //|
+}
+
+var div = document.createElement("DIV");                //----------- maakt div's aan
+div.id = "Partij";                                      //|
+container.appendChild(div);                             //|
+
+var buttonback = document.getElementById("back");
+buttonback.onclick = Back;
+var button1clicked = document.getElementById(id_button[0]);
+button1clicked.onclick = EENSclicked;
+var button2clicked = document.getElementById(id_button[1]);
+button2clicked.onclick = GEENclicked;
+var button3clicked = document.getElementById(id_button[2]);
+button3clicked.onclick = ONEENSclicked;
+var button4clicked = document.getElementById(id_button[3]);
+button4clicked.onclick = volgendestelling;
+
+var Andwoord = [0, 0, 0];
+var Andwoordstelling = [];
+var V = 0;
+
+function EENSclicked() {
+    Andwoord[0] = Andwoord[0] + 1;
+    Andwoordstelling.push({ titel: h1.innerHTML = subjects[V].title, opmerking: p.innerHTML = subjects[V].statement });
+    console.log("Stelling " + V + " beandwoord met: " + Andwoord);
+    console.log("Array " + JSON.stringify(Andwoordstelling));
+    volgendestelling()
+}
+function GEENclicked() {
+    Andwoord[1] = Andwoord[1] + 1;
+    console.log("Stelling " + V + " beandwoord met: " + Andwoord);
+    console.log("Array " + JSON.stringify(Andwoordstelling));
+    volgendestelling()
+}
+function ONEENSclicked() {
+    Andwoord[2] = Andwoord[2] + 1;
+    console.log("Stelling " + V + " beandwoord met: " + Andwoord);
+    console.log("Array " + JSON.stringify(Andwoordstelling));
+    volgendestelling()
+}
+function Back() {
+    console.log("stelling: " + V);
+    V--
+    console.log(JSON.stringify(Andwoordstelling[V]))
+    delete Andwoordstelling[V].titel;
+    delete Andwoordstelling[V].opmerking;
+    console.log("Array " + JSON.stringify(Andwoordstelling));
+    vorigestelling()
+}
+
+function volgendestelling() {
+    // alert("hoi");
+    V = V + 1;
+    console.log("stelling: " + V);
+
+    if (V == 30) {
+        alert("LET OP! U kunt na het antwoord invullen van deze vraag niet meer terug.");
+        h1.innerHTML = "Zijn er onderwerpen die u extra belangrijk vindt?";
+        p.innerHTML = "Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.";
+        document.getElementById("back").style.display = "none";
+        document.getElementById(id_button[0]).style.display = "none";
+        document.getElementById(id_button[1]).style.display = "none";
+        document.getElementById(id_button[2]).style.display = "none";
+        document.getElementById(id_button[3]).style.display = "none";
+        extra();
+    } else {
+        progressbar++
+        document.getElementById('progressbar').style.transition = "0.5s";
+        document.getElementById('progressbar').style.width = [progressbar + 1] / 30 * 100 + '%';
+
+        h1.innerHTML = subjects[V].title;
+        p.innerHTML = subjects[V].statement;
     }
 }
 
-var button1clicked = document.getElementById("btnEens");
-button1clicked.onclick = setButtonStelling;
+function vorigestelling() {
+    // alert("hoi");
+    progressbar--
+    document.getElementById('progressbar').style.transition = "0.5s";
+    document.getElementById('progressbar').style.width = [progressbar + 1] / 30 * 100 + '%';
+    console.log(V);
 
-var button2clicked = document.getElementById("btnOneens");
-button2clicked.onclick = setButtonStelling;
-var button3clicked = document.getElementById("btnVolgende");
-button3clicked.onclick = stelling2;
-
-document.getElementById("btnVolgende").style.display= "none"
-
-var EENS = 0;
-
-function eens() {
-    document.getElementById("btnVolgende").style.display = "";
-    EENS = EENS + 1
-    button3clicked.onclick = stelling3;
+    if (V < 0) {
+        window.location.href = "index.html";
+    } else {
+        h1.innerHTML = subjects[V].title;
+        p.innerHTML = subjects[V].statement;
+    }
 }
 
-function setButtonStelling() {
-    document.getElementById("btnVolgende").style.display = "";
+function extra() {
+    console.log("Waarde: " + V);
+
+    headcontainer = document.getElementsByClassName("container")[0];
+
+    var div_extra = document.createElement("DIV");                //----------- maakt div's aan
+    div_extra.id = "stelling-title";                              //|
+    headcontainer.appendChild(div_extra);                         //|
+
+    var h1 = document.createElement("H1")                         //----------- maakt een h1 (met tekst) aan
+    div_extra.appendChild(h1);                                    //|
+    h1.className = "h1-extra";                                    //|
+    h1.innerHTML = "Extra belangrijke onderwerpen";               //|
+
+    for (var z = 0; z < V; z++) {
+        var p_extra = document.createElement("p")                 //----------- maakt een p (met tekst) aan
+        div_extra.appendChild(p_extra);                           //|
+        p_extra.className = "p-stelling";                         //|
+        p_extra.innerHTML = subjects[z].title;
+    }
 }
-
-
-function stelling2() {
-    document.getElementById("stelling").innerHTML = stelling_text[1];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[0]).onclick = eens;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = stelling3;
-}
-
-function stelling3() {
-    document.getElementById("stelling").innerHTML = stelling_text[2];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[0]).onclick = eens;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = stelling4;
-}
-
-function stelling4() {
-    document.getElementById("stelling").innerHTML = stelling_text[3];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[0]).onclick = setButtonStelling;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = stelling5;
-}
-
-function stelling5() {
-    document.getElementById("stelling").innerHTML = stelling_text[4];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[0]).onclick = setButtonStelling;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = stelling6;
-}
-
-function stelling6() {
-    document.getElementById("stelling").innerHTML = stelling_text[5];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[0]).onclick = setButtonStelling;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = stelling7;
-}
-
-function stelling7() {
-    document.getElementById("stelling").innerHTML = stelling_text[6];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[0]).onclick = setButtonStelling;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = stelling8;
-}
-
-function stelling8() {
-    document.getElementById("stelling").innerHTML = stelling_text[7];
-    setTimeout(function () {                                                                
-        document.getElementById("btnVolgende").style.display= "none"                                                                
-    }, 50); 
-
-    document.getElementById(id_button[2]).innerHTML= "VOLTOOIEN";
-
-    document.getElementById(id_button[0]).onclick = setButtonStelling;
-    document.getElementById(id_button[1]).onclick = setButtonStelling;
-    button3clicked.onclick = voltooien;
-}
-
-function voltooien() {
-if (EENS == 8) {
-    document.getElementById("stelling").innerHTML = "U heeft 8 keer EENS gestemd. De partij die het beste bij uw voorkeur past is D66";   
-} else if (EENS >= 5 && EENS <= 7) {
-    document.getElementById("stelling").innerHTML = "U heeft " + EENS + " keer EENS gestemd. De partij die het beste bij uw voorkeur past is PVDA" 
-} else if (EENS < 5) {
-    document.getElementById("stelling").innerHTML = "U heeft " + eens + " keer EENS gestemd. De partij die het beste bij uw voorkeur past is CDA" 
-}
-
-}
-
-
