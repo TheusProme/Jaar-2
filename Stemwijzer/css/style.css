@@ -136,6 +136,11 @@ body{
     color: gray;
 }
 
+#partyinfo {
+    margin-top: 2%;
+    font-size: 25px;
+}
+
 #parties {
     color: black;
     margin: 0em 0.5em 0em -2em;
@@ -145,4 +150,31 @@ body{
 #stelling-title{
     padding: 2em 10em;
     background-color: rgb(231, 234, 235);
+}
+
+#wrapper {
+    background-color: rgb(233, 231, 231);
+    display: flex;
+    font-size: 24px;
+}
+#wrapper div {
+    padding: 2% 7%;
+}
+
+#wrapper div details summary {
+    width: 300px;
+}
+
+/* uitkomst */
+
+.uitkomst-stemwijzer {
+    display: flex;
+}
+
+.uitkomst-stemwijzer #stelling-uitkomst {
+    margin: 6em;
+}
+
+img.img_uitkomst {
+    width: 200px;
 }

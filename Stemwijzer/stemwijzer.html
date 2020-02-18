@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Toets Stemwijzer - stelling</title>
+    <title>Stemwijzer - Stelling</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
@@ -12,21 +12,40 @@
 <body>
     <div class="container">
         <div class="progresbar" id="progressbar"></div>
-        <a class="container-backtopage" id="back"><img src="images/arrow.png" alt="" width="75"></a>
+        <a class="container-backtopage" id="back" onclick="back()">
+            <img src="images/arrow.png" alt="arrow" width="75">
+        </a>
         <div class="inner-container-stelling">
             <div class="form">
-
+                <div id="stelling">
+                    <h1 class="h1-stelling" id="stellingtitle"></h1>
+                    <p class="p-stelling" id="stellingstatement"></p>
+                    <button id="btnEens" class="button-stelling" onclick="vote(eens)">Eens</button>
+                    <button id="btnGeen" class="button-stelling" onclick="vote(geen)">Geen mening</button>
+                    <button id="btnOneens" class="button-stelling" onclick="vote(oneens)">Oneens</button>
+                    <button id="btnNext" class="button-stelling" onclick="vote(null)">Sla vraag over --></button>
+                </div>
+                <details id="partyinfo">                   
+                    <summary>Wat vinden andere partijen?</summary>
+                    <div id="wrapper">
+                        <div id="wrappereens"><p>Eens</p></div>
+                        <div id="wrapperoneens"><p>Oneens</p></div>
+                        <div id="wrappergeen"><p>Geen</p></div>
+                    </div>
+                </details>
+                <div class="uitkomst-stemwijzer"></div>
             </div>
         </div>
     </div>
-    
+
     <!-- <div class="item footer_stemwijzer">
             <div class="footertext_stemwijzer">
                 <p> © 2018 - Theus de Zeeuw</p>
             </div>
         </div> -->
     <script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
-    <script src="js/stemwijzer.js"></script>   
+    <!-- <script src="js/stemwijzer.js"></script> -->
+    <script src="js/jstest.js"></script>
 </body>
 
 </html>
