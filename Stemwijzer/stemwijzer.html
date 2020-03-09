@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div class="progresbar" id="progressbar"></div>
         <a class="container-backtopage" id="back" onclick="back()">
             <img src="images/arrow.png" alt="arrow" width="75">
@@ -25,17 +25,213 @@
                     <button id="btnOneens" class="button-stelling" onclick="vote(oneens)">Oneens</button>
                     <button id="btnNext" class="button-stelling" onclick="vote(null)">Sla vraag over --></button>
                 </div>
-                <details id="partyinfo">                   
+                <details id="partyinfo">
                     <summary>Wat vinden andere partijen?</summary>
                     <div id="wrapper">
-                        <div id="wrappereens"><p>Eens</p></div>
-                        <div id="wrapperoneens"><p>Oneens</p></div>
-                        <div id="wrappergeen"><p>Geen</p></div>
+                        <div id="wrappereens">
+                            <p>Eens</p>
+                        </div>
+                        <div id="wrapperoneens">
+                            <p>Oneens</p>
+                        </div>
+                        <div id="wrappergeen">
+                            <p>Geen</p>
+                        </div>
                     </div>
                 </details>
-                <div class="uitkomst-stemwijzer"></div>
+                <div class="extra" id="extra_stelling">
+                    <h2>Extra belangrijke onderwerpen</h2>
+                    <ul class="opinions__list js-selection" data-name="opinions">
+			
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_1" value="1" class="item__checkbox js-theme" data-theme-id="bindend-referendum">
+                            <label for="theme_1"><span>Bindend referendum</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.  "></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_2" value="1" class="item__checkbox js-theme" data-theme-id="maatschappelijke-dienstplicht">
+                            <label for="theme_2"><span>Maatschappelijke dienstplicht</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet een maatschappelijke dienstplicht voor jongeren komen. Zij kunnen dan dienen in het leger, bij de politie of in de zorg."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_3" value="1" class="item__checkbox js-theme" data-theme-id="anoniem-solliciteren">
+                            <label for="theme_3"><span>Anoniem solliciteren</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Om discriminatie op basis van de naam te voorkomen, moet anoniem solliciteren bij de overheid en bij openbare instellingen de regel worden."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_4" value="1" class="item__checkbox js-theme" data-theme-id="groepsbelediging">
+                            <label for="theme_4"><span>Groepsbelediging</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Belediging van groepen op grond van ras, godsdienst of geaardheid moet niet langer strafbaar zijn."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_5" value="1" class="item__checkbox js-theme" data-theme-id="teelt-en-verkoop-wiet">
+                            <label for="theme_5"><span>Teelt en verkoop wiet</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De teelt en verkoop van wiet moet legaal worden."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_6" value="1" class="item__checkbox js-theme" data-theme-id="vervroegde-vrijlating">
+                            <label for="theme_6"><span>Vervroegde vrijlating</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De vervroegde vrijlating onder voorwaarden van gevangenen moet stoppen. Zij moeten hun straf helemaal uitzitten."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_7" value="1" class="item__checkbox js-theme" data-theme-id="vennootschapsbelasting">
+                            <label for="theme_7"><span>Vennootschapsbelasting</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De belasting over de winst van ondernemingen (vennootschapsbelasting) moet omlaag."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_8" value="1" class="item__checkbox js-theme" data-theme-id="belasting-hoogste-inkomens">
+                            <label for="theme_8"><span>Belasting hoogste inkomens</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De hoogste inkomensgroepen moeten meer belasting gaan betalen. "></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_9" value="1" class="item__checkbox js-theme" data-theme-id="tijdelijke-arbeidscontracten">
+                            <label for="theme_9"><span>Tijdelijke arbeidscontracten</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De periode waarbinnen je meerdere tijdelijke arbeidscontracten na elkaar kunt afsluiten, moet langer worden dan twee jaar."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_10" value="1" class="item__checkbox js-theme" data-theme-id="aow-leeftijd-65">
+                            <label for="theme_10"><span>AOW-leeftijd 65</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De AOW-leeftijd moet weer 65 jaar worden."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_11" value="1" class="item__checkbox js-theme" data-theme-id="verzekering-zzp-apos-ers">
+                            <label for="theme_11"><span>Verzekering zzp'ers</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet een verplichte verzekering tegen arbeidsongeschiktheid en ziekte komen voor alle zelfstandigen zonder personeel (zzp'ers)."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_12" value="1" class="item__checkbox js-theme" data-theme-id="leenstelsel-studenten">
+                            <label for="theme_12"><span>Leenstelsel studenten</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Het leenstelsel voor studenten moet worden afgeschaft. De basisbeurs moet weer terugkomen."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_13" value="1" class="item__checkbox js-theme" data-theme-id="geld-cultuur">
+                            <label for="theme_13"><span>Geld cultuur</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet meer geld naar kunst en cultuur."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_14" value="1" class="item__checkbox js-theme" data-theme-id="islamitische-immigranten">
+                            <label for="theme_14"><span>Islamitische immigranten</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Nederland moet de grenzen sluiten voor islamitische immigranten.  "></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_15" value="1" class="item__checkbox js-theme" data-theme-id="kinderpardon">
+                            <label for="theme_15"><span>Kinderpardon</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="In Nederland opgegroeide kinderen van asielzoekers moeten hier kunnen blijven (kinderpardon)."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_16" value="1" class="item__checkbox js-theme" data-theme-id="onderdak-illegalen">
+                            <label for="theme_16"><span>Onderdak illegalen</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De regering moet gemeenten verbieden illegale vreemdelingen onderdak te geven."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_17" value="1" class="item__checkbox js-theme" data-theme-id="hypotheekrente">
+                            <label for="theme_17"><span>Hypotheekrente</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De regeling voor de aftrek van de hypotheekrente moet niet verder worden aangetast."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_18" value="1" class="item__checkbox js-theme" data-theme-id="verhuurdersheffing">
+                            <label for="theme_18"><span>Verhuurdersheffing</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Woningcorporaties moeten meer goedkope huurwoningen bouwen. Daarom moet de belasting die zij betalen over huurwoningen (verhuurdersheffing) worden afgeschaft. "></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_19" value="1" class="item__checkbox js-theme" data-theme-id="schiphol">
+                            <label for="theme_19"><span>Schiphol</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Luchthaven Schiphol moet kunnen uitbreiden.  "></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_20" value="1" class="item__checkbox js-theme" data-theme-id="kilometerheffing">
+                            <label for="theme_20"><span>Kilometerheffing</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De regering moet niet het bezit van de auto, maar het aantal gereden kilometers belasten."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_21" value="1" class="item__checkbox js-theme" data-theme-id="nieuwe-wegen">
+                            <label for="theme_21"><span>Nieuwe wegen</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet meer geld naar de aanleg van nieuwe wegen."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_22" value="1" class="item__checkbox js-theme" data-theme-id="kolencentrales">
+                            <label for="theme_22"><span>Kolencentrales</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Alle kolencentrales mogen voorlopig open blijven."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_23" value="1" class="item__checkbox js-theme" data-theme-id="btw-tarief-vlees">
+                            <label for="theme_23"><span>Btw-tarief vlees</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Voor vlees moet het hoge btw-tarief van 21 procent gaan gelden."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_24" value="1" class="item__checkbox js-theme" data-theme-id="voltooid-leven">
+                            <label for="theme_24"><span>Voltooid leven</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Ouderen die vinden dat hun leven voltooid is moeten hulp kunnen krijgen om een einde aan hun leven te maken."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_25" value="1" class="item__checkbox js-theme" data-theme-id="afschaffing-eigen-risico">
+                            <label for="theme_25"><span>Afschaffing eigen risico</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Het eigen risico in de zorg moet worden afgeschaft, ook als dat betekent dat de premies omhoog gaan."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_26" value="1" class="item__checkbox js-theme" data-theme-id="landelijk-zorgfonds">
+                            <label for="theme_26"><span>Landelijk zorgfonds</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet een landelijk zorgfonds komen, zodat het stelsel van particuliere zorgverzekeraars kan verdwijnen.  "></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_27" value="1" class="item__checkbox js-theme" data-theme-id="defensie-uitgaven">
+                            <label for="theme_27"><span>Defensie-uitgaven</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="De uitgaven voor defensie moeten de komende jaren fors omhoog naar 2 procent van het nationale inkomen (de NAVO-norm)."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_28" value="1" class="item__checkbox js-theme" data-theme-id="europees-leger">
+                            <label for="theme_28"><span>Europees leger</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Er moet een Europees leger komen."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_29" value="1" class="item__checkbox js-theme" data-theme-id="ontwikkelingshulp">
+                            <label for="theme_29"><span>Ontwikkelingshulp</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Nederland moet meer geld uitgeven voor de ontwikkeling van arme landen."></button>
+                        </li>
+    
+                        <li class="opinions__item">
+                            <input type="checkbox" id="theme_30" value="1" class="item__checkbox js-theme" data-theme-id="eu-lidmaatschap">
+                            <label for="theme_30"><span>EU-lidmaatschap</span></label>
+                            <button class="item__help tipso tipso-left tipso_style" data-tipso="Nederland moet uit de Europese Unie (EU) stappen."></button>
+                        </li>
+                    </ul>
+                </div>
+                <h1 class="h1-uitkomst" id="uitkomsttitle"></h1>
+                <div class="uitkomst-stemwijzer">
+                    <!--content gemaakt met JavaScript  -->
+                </div>
             </div>
         </div>
+        
+        
     </div>
 
     <!-- <div class="item footer_stemwijzer">

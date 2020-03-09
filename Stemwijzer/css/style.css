@@ -177,4 +177,35 @@ body{
 
 img.img_uitkomst {
     width: 200px;
+    /* border: 2px solid blue; */
+    border-radius: 100%;
+}
+
+/* extra */
+ol, ul {
+    list-style: none;
+}
+
+.themes .themes__opinions .opinions__item {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 100%;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+    border-bottom: 1px solid #979797;
+}
+
+ul.opinions__list.js-selection {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20%;
+    flex-wrap: wrap;
+    font-size: 1.5em;
+}
+
+li.opinions__item {
+    width: 20em;
 }
