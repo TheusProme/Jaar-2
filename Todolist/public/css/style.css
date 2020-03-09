@@ -1,0 +1,180 @@
+body {
+    height: 100%;
+    width: 100%;
+    font-size:20px;
+    background-image: url("../img/a.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #383838;
+}
+
+.head{
+    font-size: 24px;
+    margin-left: 40px; 
+}
+
+.head div{
+    margin: 0px 50px;
+    width: 125px;
+    text-align: center;
+    display: inline-block;
+    color: black;
+}
+
+h1{
+    margin-left: 400px; 
+}
+
+li>a{
+    color: white;
+}
+
+i:hover{
+    color: white;
+    transition-duration: 0.5s;
+}
+
+h1, h4{
+    color: white;
+}
+
+hr{
+    margin: 0px;
+    height: 1.5px;
+    background-color: red;
+}
+
+img{
+    width: 100%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul>li>a>span{
+    width: 225px;
+    text-align: center;
+    margin: 0px -5px; 
+    display: inline-block;
+
+    /* border: 1px solid darkslategray; */
+    background-color: white;
+}
+
+label{
+    display: inline-block;
+    width: 100px;
+}
+
+p{
+    color: white;
+}
+
+input{
+    width: 300px;
+    float: right;
+    /* margin-left: 20px; */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.name{
+    margin-left: 11px;
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.301);
+    height: 155px;
+}
+
+nav>ul{
+    padding:0;
+    margin-right: 100px;
+    /* margin-top: 20px; */
+}
+
+nav>ul>li{
+    list-style: none;
+    display: inline;
+    padding-right:10px;
+    font-size: 30px;
+    
+}
+
+nav>ul>li>a{
+    color:red;
+    font-size: 54px;
+    float: right;
+}
+
+footer{
+   text-align: center;
+}
+
+span.error{
+    color:red;
+}
+
+.delete{
+    color: red;
+}
+
+.edit{
+    color: darkgoldenrod;
+}
+
+a{
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.edit:hover{
+    text-decoration: none;
+    border-radius: 15px;
+
+    border: 1px double orangered;
+
+    transition-duration: 0.5s;
+}
+
+.delete:hover{
+    text-decoration: none;
+    border-radius: 15px;
+
+    border: 1px double red;
+
+    transition-duration: 0.5s;
+}
+
+span{
+    color: darkred;
+}
+
+.footer{
+    height: 75px;
+    width: 100%;
+    position: absolute;
+    top: 650px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.301);
+}
+footer{
+    position: absolute;
+    top: 25px;
+    left: 80%;
+}
+
+/* create page */
+.create{
+    position: absolute;
+    top: 250px;
+    left: 30%;
+}
+
+.create h1{
+    margin-left: 0px;
+}
