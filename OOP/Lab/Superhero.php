@@ -3,10 +3,10 @@
 class Superhero {
 
 // Voeg 4 public properties toe aan de class:
-    public $name = '';
-    public $gender = '';
-    public $team = ''; 
-    public $oneline = '';
+    public $name;
+    public $gender; 
+    public $team;
+    public $oneline;
 
 // Maak een constructor aan in de phpfile class waarmee de waardes van de 4 properties gezet 
 // kunnen worden wanneer je een nieuw object aanmaakt gebasseerd op de Superhero class:
