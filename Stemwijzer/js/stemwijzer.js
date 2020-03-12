@@ -1,121 +1,73 @@
-var container = document.createElement("DIV");          //----------- maakt een container aan
-var id_button = ["btnEens", "btnGeen", "btnOneens", "btnNext", "parties"]
-var button_text = ["Eens", "Geen van beide", "Oneens", "Sla vraag over -->", "Wat vinden de partijen?"]
-var headcontainer = document.getElementsByClassName("form")[0];
-var progressbar = 0;
-var button3 = document.getElementById("btnVolgende");
+var quest = 0;
+var answers = [];
+var progressbar_count = 0;
 
-headcontainer.appendChild(container);                   //----------- voegt container aan form[div]
-container.id = ('stemWijzer');
+var eens = "eens";
+var geen = "geen";
+var oneens = "oneens";
 
-var div = document.createElement("DIV");                //----------- maakt div's aan
-div.id = "stelling";                                    //|
-container.appendChild(div);                             //|
+extra_stelling.style.display = "none";
 
-var h1 = document.createElement("H1")                   //----------- maakt een h1 (met tekst) aan
-div.appendChild(h1);                                    //|
-h1.className = "h1-stelling";                           //|
-h1.innerHTML = subjects[0].title;                       //|
 
-var p = document.createElement("p")                     //----------- maakt een p (met tekst) aan
-div.appendChild(p);                                     //|
-p.className = "p-stelling";                             //|
-p.innerHTML = subjects[0].statement;                    //|
+get_question(quest);
 
-for (var i = 0; i < 4; i++) {
-    var button = document.createElement("button");      //----------- maakt de buttons aan
-    div.appendChild(button);                            //|
-    button.id = id_button[i];                           //|
-    button.className = "button-stelling"                //|
-    button.innerHTML = button_text[i];                  //|
+
+function get_question(question) {
+    stellingtitle.innerText = subjects[quest]["title"];
+    stellingstatement.innerText = subjects[quest]["statement"];
+    loadparties();
 }
 
-var div = document.createElement("DIV");                //----------- maakt div's aan
-div.id = "Partij";                                      //|
-container.appendChild(div);                             //|
+function vote(voting) {
+    // progressbar_count++
+    // progressbar.style.transition = "0.5s";
+    // progressbar.style.width = [progressbar_count + 1] / 30 * 100 + '%';
 
-var buttonback = document.getElementById("back");
-buttonback.onclick = Back;
-var button1clicked = document.getElementById(id_button[0]);
-button1clicked.onclick = EENSclicked;
-var button2clicked = document.getElementById(id_button[1]);
-button2clicked.onclick = GEENclicked;
-var button3clicked = document.getElementById(id_button[2]);
-button3clicked.onclick = ONEENSclicked;
-var button4clicked = document.getElementById(id_button[3]);
-button4clicked.onclick = volgendestelling;
+    // answers[quest] = voting;
+    // quest++;
+    // get_question(quest);
 
-var Andwoord = [0, 0, 0];
-var Andwoordstelling = [];
-var V = 0;
-
-function EENSclicked() {
-    Andwoord[0] = Andwoord[0] + 1;
-    Andwoordstelling.push({ titel: h1.innerHTML = subjects[V].title, opmerking: p.innerHTML = subjects[V].statement });
-    console.log("Stelling " + V + " beandwoord met: " + Andwoord);
-    console.log("Array " + JSON.stringify(Andwoordstelling));
-    volgendestelling()
-}
-function GEENclicked() {
-    Andwoord[1] = Andwoord[1] + 1;
-    console.log("Stelling " + V + " beandwoord met: " + Andwoord);
-    console.log("Array " + JSON.stringify(Andwoordstelling));
-    volgendestelling()
-}
-function ONEENSclicked() {
-    Andwoord[2] = Andwoord[2] + 1;
-    console.log("Stelling " + V + " beandwoord met: " + Andwoord);
-    console.log("Array " + JSON.stringify(Andwoordstelling));
-    volgendestelling()
-}
-function Back() {
-    console.log("stelling: " + V);
-    V--
-    console.log(JSON.stringify(Andwoordstelling[V]))
-    delete Andwoordstelling[V].titel;
-    delete Andwoordstelling[V].opmerking;
-    console.log("Array " + JSON.stringify(Andwoordstelling));
-    vorigestelling()
-}
-
-function volgendestelling() {
-    // alert("hoi");
-    V = V + 1;
-    console.log("stelling: " + V);
-
-    if (V == 30) {
+    if (quest == 29) {
         alert("LET OP! U kunt na het antwoord invullen van deze vraag niet meer terug.");
-        h1.innerHTML = "Zijn er onderwerpen die u extra belangrijk vindt?";
-        p.innerHTML = "Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.";
-        document.getElementById("back").style.display = "none";
-        document.getElementById(id_button[0]).style.display = "none";
-        document.getElementById(id_button[1]).style.display = "none";
-        document.getElementById(id_button[2]).style.display = "none";
-        document.getElementById(id_button[3]).style.display = "none";
+
+        btnEens.style.display = "none";
+        btnGeen.style.display = "none";
+        btnOneens.style.display = "none";
+        btnNext.style.display = "none";
         extra();
     } else {
-        progressbar++
-        document.getElementById('progressbar').style.transition = "0.5s";
-        document.getElementById('progressbar').style.width = [progressbar + 1] / 30 * 100 + '%';
+        if (voting == null) {
+            progressbar_count++
+            progressbar.style.transition = "0.5s";
+            progressbar.style.width = [progressbar_count + 1] / 30 * 100 + '%';
 
-        h1.innerHTML = subjects[V].title;
-        p.innerHTML = subjects[V].statement;
+            answers[quest] = "";
+            quest++;
+            get_question(quest);
+        } else {
+            progressbar_count++
+            progressbar.style.transition = "0.5s";
+            progressbar.style.width = [progressbar_count + 1] / 30 * 100 + '%';
+
+            answers[quest] = voting;
+            quest++;
+            get_question(quest);
+        }
+
     }
 }
 
-function vorigestelling() {
-    // alert("hoi");
-    progressbar--
-    document.getElementById('progressbar').style.transition = "0.5s";
-    document.getElementById('progressbar').style.width = [progressbar + 1] / 30 * 100 + '%';
-    console.log(V);
+function back() {
+    progressbar_count--
+    progressbar.style.transition = "0.5s";
+    progressbar.style.width = [progressbar_count + 1] / 30 * 100 + '%';
 
-    if (V < 0) {
-        window.location.href = "index.html";
+    if (quest > 0) {
+        quest--
     } else {
-        h1.innerHTML = subjects[V].title;
-        p.innerHTML = subjects[V].statement;
+        window.location.href = "index.html";
     }
+    get_question(quest);
 }
 
 function extra() {
