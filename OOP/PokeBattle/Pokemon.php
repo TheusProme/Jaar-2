@@ -3,7 +3,7 @@
 class Pokemon {
 
 // Voeg 4 public properties toe aan de class:
-    public $name;
+    public $Name;
     public $EnergyType;
     public $hitpoints; 
     public $health;
@@ -14,8 +14,8 @@ class Pokemon {
 
 // Maak een constructor aan in de phpfile class waarmee de waardes van de 4 properties gezet 
 // kunnen worden wanneer je een nieuw object aanmaakt gebasseerd op de Superhero class:
-    public function __construct($name, $EnergyType, $hitpoints, $health, $Attacks, $Weakness, $Resistance) {
-        $this->name = $name;
+    public function __construct($Name, $EnergyType, $hitpoints, $health, $Attacks, $Weakness, $Resistance) {
+        $this->Name = $Name;
         $this->EnergyType = $EnergyType;
         $this->hitpoints = $hitpoints;
         $this->health = $hitpoints;
