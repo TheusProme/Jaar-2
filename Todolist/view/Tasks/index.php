@@ -2,6 +2,7 @@
 </nav>
 <hr>
 <div id="container">
+<input type="text" id="myInput" onkeyup="Search()" placeholder="Search" title="Type in a name">
     <div class="head">
         <div>Naam</div>
         <div>Afspraak</div>
@@ -19,7 +20,7 @@
 		foreach ($data as $key => $Appointments) {
 	?>
 
-    <ul>
+    <ul id="myUL">
         <li>
 
             <span><?php echo $Appointments["Name"]; ?></span>
@@ -34,4 +35,23 @@
     </ul>
 	
     <?php } ?>
-	<a href="/Jaar-2/Todolist//Todo/create/<?php echo $parts[count($parts) - 1];?>">Add Task</i></a>
+    <a href="/Jaar-2/Todolist//Todo/create/<?php echo $parts[count($parts) - 1];?>">Add Task</i></a>
+    
+    <script>
+    function Search() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
