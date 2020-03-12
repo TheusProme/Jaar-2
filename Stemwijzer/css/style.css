@@ -136,6 +136,29 @@ body{
     color: gray;
 }
 
+button#Next {
+    /* float: right; */
+    position: relative;
+    left: 75%;
+}
+
+.row2buttons {
+    display: flex;
+}
+
+.button-stelling-extra {
+    margin: 1em 2em 1em 0em;
+    background-color: rgb(1, 180, 220);
+    border-color: transparent;
+    color: white;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    max-height: 3em;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
 #partyinfo {
     margin-top: 2%;
     font-size: 25px;
