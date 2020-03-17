@@ -28,6 +28,7 @@ public static $pokemons = [];
         array_push(self::$pokemons, $this);
     }
 
+// Haal de Attacks op van de Attack class:
     public function getAttack(string $name): Pokemon_attack {
         foreach ($this->Attacks as $attack) {
             if ($attack->Name == $name) {
@@ -37,6 +38,7 @@ public static $pokemons = [];
         return null;
     }
 
+// Zet de aanval in:
     public function attack(Pokemon $target, Pokemon_attack $attack): void {
         $Power = $attack->Power;
 
@@ -53,11 +55,23 @@ public static $pokemons = [];
         $alive = [];
         foreach (self::$pokemons as $pokemon) {
             if ($pokemon->health > 0) {
-                array_push($alive, $pokemon);
+                array_push($alive, $pokemon->Name);
             }
         }
         return $alive;
     }
+
+    public static function getPopulationHealth(){
+        $alive = [];
+        foreach (self::$pokemons as $pokemon) {
+            if ($pokemon->health > 0) {
+                array_push($alive, $pokemon->health);
+            }
+        }
+        $total = array_sum($alive);
+        return $total/count($alive);
+    }
+
 
 // Voeg de volgende methode toe aan de class:
     // public function sayOneliner() {
