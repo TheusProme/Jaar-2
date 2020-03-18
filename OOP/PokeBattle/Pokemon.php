@@ -72,11 +72,11 @@ public static $pokemons = [];
         return $total/count($alive);
     }
 
+    public static function PushToPokeBag($name){
+        $PokeBag = [];
+        array_push($PokeBag, $name);
+    }
 
-// Voeg de volgende methode toe aan de class:
-    // public function sayOneliner() {
-    //     echo '<h2>' . $this->health . '</h2>';
-    // }
 
 // Voeg een __toString() methode toe aan de class (json_encode gaat opzoek naar de 
 // properties van het object en deze formateren in het json formaat):
