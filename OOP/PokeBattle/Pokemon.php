@@ -6,7 +6,7 @@ class Pokemon {
 public static $pokemons = [];
 
 // Voeg 4 public properties toe aan de class:
-    public $Name;
+    private $Name;
     public $EnergyType;
     public $hitpoints; 
     public $Attacks;
@@ -48,7 +48,12 @@ public static $pokemons = [];
             $Power = $Power/2;
         }
 
-        $target->health-= $Power;
+        //
+        $target->setHealth($Power);
+    }
+
+    public function setHealth($power){
+        $this->health -= $power;
     }
 
     public static function getPopulation(): array {
@@ -60,6 +65,13 @@ public static $pokemons = [];
         }
         return $alive;
     }
+
+
+    public function getPropertie(string $Propertie){
+        echo "<br>". $Propertie. " <-----";
+        return $this->Propertie;
+    }
+
 
     public static function getPopulationHealth(){
         $alive = [];

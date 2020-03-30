@@ -1,6 +1,6 @@
 <?php
 
-require 'PokeBag.php';
+// require 'PokeBag.php';
 require 'Pokemon.php';
 require 'Pokemon-Attack.php';
 
@@ -14,6 +14,7 @@ require 'Pokemon-Attack.php';
 
 // Het gevecht: 
     // Pikachu valt Charmeleon aan met een Electric Ring attack: 
+    echo $Pikachu->getPropertie("name");
     $Pikachu->attack($Charmeleon, $Pikachu->getAttack("Electric Ring"));    
     print_r('<pre>'. $Charmeleon . '</pre>');
     // Charmeleon valt Pikachu aan met een Flare attack: 
@@ -27,12 +28,9 @@ require 'Pokemon-Attack.php';
     print_r(json_encode(Pokemon::getPopulationHealth()));
 
 // PokeBag
-    $Pikachu->PushToPokeBag($Pikachu);
-    $Pikachu_PokeBag = new PokeBag('Pikachu', $Pikachu);
-    $Charmeleon_PokeBag = new PokeBag('Charmeleon', $Charmeleon);
-    // array_push($PokeBag, $Pikachu_PokeBag->Name, $Charmeleon_PokeBag->Name);
+    // $Pikachu->PushToPokeBag($Pikachu);
+    // // array_push($PokeBag, $Pikachu_PokeBag->Name, $Charmeleon_PokeBag->Name);
 
-    count($PokeBag);
 
-    echo "<br> PokeBag: <br>";
-    print_r('<pre>'. json_encode($PokeBag) .' Total in bag: ' . count($PokeBag). '</pre>');
+    // echo "<br> PokeBag: <br>";
+    // print_r('<pre>'. json_encode($PokeBag). '</pre>');

@@ -1,0 +1,17 @@
+.Start-container {
+    display: flex;
+    margin: 20% 30%;
+    width: 600px;
+    border: 2px solid black;
+}
+
+.pokemon {
+    margin: 0 auto;
+}
+
+.Choose {
+    margin: 3em;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

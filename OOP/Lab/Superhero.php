@@ -8,7 +8,7 @@ class Superhero {
     public $team;
     public $oneline;
 
-// Maak een constructor aan in de phpfile class waarmee de waardes van de 4 properties gezet 
+// Maak een constructor aan in de phpfile class waarmee de waardes van de properties gezet 
 // kunnen worden wanneer je een nieuw object aanmaakt gebasseerd op de Superhero class:
     public function __construct($name, $gender, $team, $oneliner) {
         $this->name = $name;
