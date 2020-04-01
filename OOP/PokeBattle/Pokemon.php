@@ -7,11 +7,11 @@ public static $pokemons = [];
 
 // Voeg 4 public properties toe aan de class:
     private $Name;
-    public $EnergyType;
-    public $hitpoints; 
-    public $Attacks;
-    public $Weakness;
-    public $Resistance;
+    private $EnergyType;
+    private $hitpoints; 
+    private $Attacks;
+    private $Weakness;
+    private $Resistance;
 
 
 // Maak een constructor aan in de phpfile class waarmee de waardes van de 4 properties gezet 
@@ -68,8 +68,9 @@ public static $pokemons = [];
 
 
     public function getPropertie(string $Propertie){
-        echo "<br>". $Propertie. " <-----";
-        return $this->Propertie;
+        // echo "<br>". $Propertie. " <-----";
+        
+        return $this->$Propertie;
     }
 
 

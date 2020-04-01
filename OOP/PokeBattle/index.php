@@ -14,7 +14,7 @@ require 'Pokemon-Attack.php';
 
 // Het gevecht: 
     // Pikachu valt Charmeleon aan met een Electric Ring attack: 
-    echo $Pikachu->getPropertie("name");
+    echo $Pikachu->getPropertie("EnergyType");
     $Pikachu->attack($Charmeleon, $Pikachu->getAttack("Electric Ring"));    
     print_r('<pre>'. $Charmeleon . '</pre>');
     // Charmeleon valt Pikachu aan met een Flare attack: 
