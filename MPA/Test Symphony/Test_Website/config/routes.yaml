@@ -1,0 +1,20 @@
+# index:
+#    path: /
+#    controller: App\Controller\UserController::index
+
+welcome:
+   path: /welcome
+   controller: App\Controller\WelcomeController::Welcome
+
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
+
+blog_index:
+    path:       /blog
+    controller: App\Controller\BlogController::index
+
+blog_post:
+    path:       /article/{slug}
+    controller: App\Controller\BlogController::show
+
